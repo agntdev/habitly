@@ -1,0 +1,20 @@
+[
+  {
+    "name": "All habits",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "View compact list of all habits with status and streaks"
+            }
+          }
+        ],
+        "send": {
+          "callback": "habits:list"
+        }
+      }
+    ]
+  }
+]
