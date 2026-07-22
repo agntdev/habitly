@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Edit profile",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Update timezone or milestone preferences"
+            }
+          }
+        ],
+        "send": {
+          "callback": "user:edit"
+        }
+      }
+    ]
+  }
+]
