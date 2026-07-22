@@ -1,19 +1,20 @@
 [
   {
-    "name": "Edit profile",
+    "name": "Edit profile — shows settings",
     "steps": [
       {
+        "send": { "callback": "user:edit" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "answerCallbackQuery"
+          },
+          {
+            "method": "editMessageText",
             "payload": {
-              "text": "Update timezone or milestone preferences"
+              "text": "Your settings:\n\nTimezone: UTC\nMilestones: 7, 21, 60 days"
             }
           }
-        ],
-        "send": {
-          "callback": "user:edit"
-        }
+        ]
       }
     ]
   }

@@ -12,11 +12,13 @@ const composer = new Composer<Ctx>();
 const WELCOME = "👋 Welcome! Tap a button below to get started.";
 
 composer.command("start", async (ctx) => {
+  ctx.session.step = "idle";
   await ctx.reply(WELCOME, { reply_markup: mainMenuKeyboard() });
 });
 
 // "Back to menu" — re-render the main menu in place from any sub-view.
 composer.callbackQuery("menu:main", async (ctx) => {
+  ctx.session.step = "idle";
   await ctx.answerCallbackQuery();
   await ctx.editMessageText(WELCOME, { reply_markup: mainMenuKeyboard() });
 });
