@@ -1,19 +1,20 @@
 [
   {
-    "name": "Weekly recap",
+    "name": "Weekly recap — empty state",
     "steps": [
       {
+        "send": { "callback": "recap:view" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "answerCallbackQuery"
+          },
+          {
+            "method": "editMessageText",
             "payload": {
-              "text": "Manually view the latest weekly recap"
+              "text": "No habits to recap yet — create one first!"
             }
           }
-        ],
-        "send": {
-          "callback": "recap:view"
-        }
+        ]
       }
     ]
   }

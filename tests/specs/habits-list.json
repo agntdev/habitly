@@ -1,19 +1,20 @@
 [
   {
-    "name": "All habits",
+    "name": "All habits — empty state",
     "steps": [
       {
+        "send": { "callback": "habits:list" },
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "answerCallbackQuery"
+          },
+          {
+            "method": "editMessageText",
             "payload": {
-              "text": "View compact list of all habits with status and streaks"
+              "text": "No habits yet — tap ➕ New habit to create your first one."
             }
           }
-        ],
-        "send": {
-          "callback": "habits:list"
-        }
+        ]
       }
     ]
   }

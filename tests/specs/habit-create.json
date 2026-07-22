@@ -1,19 +1,20 @@
 [
   {
-    "name": "Create new habit",
+    "name": "Create new habit — starts the creation flow",
     "steps": [
       {
+        "send": { "callback": "habit:create" },
         "expect": [
+          {
+            "method": "answerCallbackQuery"
+          },
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Start the habit creation flow"
+              "text": "What habit do you want to build?"
             }
           }
-        ],
-        "send": {
-          "callback": "habit:create"
-        }
+        ]
       }
     ]
   }

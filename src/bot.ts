@@ -6,7 +6,21 @@ import type { StorageAdapter } from "grammy";
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
 export interface Session {
-  // example: step?: "awaiting_amount";
+  // Habit creation flow
+  step?:
+    | "idle"
+    | "hc_awaiting_name"
+    | "hc_awaiting_schedule"
+    | "hc_awaiting_reminder"
+    | "hc_confirming"
+    | "ue_awaiting_timezone"
+    | "ue_awaiting_milestone";
+  // Temporary flow data (ephemeral — only lives during the conversation)
+  hc_name?: string;
+  hc_schedule_type?: string;
+  hc_schedule_config?: { days?: number[]; times_per_week?: number };
+  hc_reminder_time?: string;
+  hc_editing_habit_id?: string;
 }
 
 export type Ctx = BotContext<Session>;
